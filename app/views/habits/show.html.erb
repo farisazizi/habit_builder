@@ -2,12 +2,12 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @habit.title %>
+  <%= @habit.habit_title %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @habit.description %>
+  <%= @habit.habit_description %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Done:</strong>
-  <%= @habit.done %>
+  <%= @habit.habit_done %>
 </p>
 
 <%= link_to 'Edit', edit_habit_path(@habit) %> |
