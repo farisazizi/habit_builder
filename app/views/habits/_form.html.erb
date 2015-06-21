@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :Title %><br>
+    <%= f.text_field :habit_title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.label :Description %><br>
+    <%= f.text_field :habit_description %>
   </div>
   <div class="field">
-    <%= f.label :days_practised %><br>
+    <%= f.label :Total_Practised_Days %><br>
     <%= f.text_field :days_practised %>
   </div>
   <div class="field">
-    <%= f.label :practise_streak %><br>
+    <%= f.label :Longest_Streak %><br>
     <%= f.text_field :practise_streak %>
   </div>
   <div class="field">
-    <%= f.label :done %><br>
-    <%= f.check_box :done %>
+    <%= f.label :Status %><br>
+    <%= f.check_box :habit_done %>
   </div>
   <div class="actions">
     <%= f.submit %>

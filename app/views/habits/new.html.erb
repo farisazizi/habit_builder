@@ -1,14 +1,30 @@
-<% provide(:title, 'New Habit') %>
 <h1>New Habit</h1>
+
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_for(@habit) do |f| %>
-            <%= render 'shared/error_messages' %>
-
-            <%= f.label :habit_title %>
+            <%= f.label :Title %>
+            <br></br>
+            <label for "inform">Choose a title or choose others to insert your own title : </label>
+            <br></br>
+            <button type="button" onclick = "">Self-Improvement</button>
+            <button type="button">Fitness</button>
+            <button type="button">Reading</button>
+            <br></br>
+            <button type="button">Social</button>
+            <button type="button">Study</button>
+            <button type="button">Work</button>
+            <br></br>
+            <button type="button">Arts</button>
+            <button type="button">Money</button>
+            <button type="button">Others</button>
+            <br></br>
+            <label for "title">Habit Title</label>
+            <br></br>
             <%= f.text_field :habit_title, class: 'form-control' %>
-            
+            <br></br>
             <%= f.label :habit_description %>
+            <br></br>
             <%= f.text_field :habit_description, class: 'form-control' %>
             
             <%= f.submit "Start work on my habit", class: "btn btn-primary" %>

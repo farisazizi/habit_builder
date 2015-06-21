@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :users
   resources :habits
-
+  
   root 'landing#front'
   get 'signup' => 'users#new'
-  resources :users
+  get 'newhabit' => 'habits#new'
 
   #gets 'landing/front'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,6 +10,7 @@ class HabitsController < ApplicationController
   # GET /habits/1
   # GET /habits/1.json
   def show
+    @habit = Habit.find(params[:id])
   end
 
   # GET /habits/new
@@ -69,6 +70,6 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:title, :description, :days_practised, :practise_streak, :done)
+      params.require(:habit).permit(:habit_title, :habit_description, :days_practised, :practise_streak, :habit_done)
     end
 end
