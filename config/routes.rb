@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root 'landing#front'
   get 'signup' => 'users#new'
+  get 'history' => 'tracker#home'
+  get 'progress' => 'tracker#index'
+  resources :tracks
   resources :users
 
   #gets 'landing/front'

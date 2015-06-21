@@ -10,6 +10,7 @@ class HabitsController < ApplicationController
   # GET /habits/1
   # GET /habits/1.json
   def show
+    #@habits = Habit.find(habit_params)
   end
 
   # GET /habits/new
