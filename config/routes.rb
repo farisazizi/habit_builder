@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   
-  get 'sessions/new'
-
+  root 'landing#front'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   #gets 'landing/front'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'landing#front'
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
