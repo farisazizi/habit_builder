@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :habits
+
   root 'landing#front'
   get 'signup' => 'users#new'
   resources :users

@@ -1,0 +1,17 @@
+<% provide(:title, 'New Habit') %>
+<h1>New Habit</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@habit) do |f| %>
+            <%= render 'shared/error_messages' %>
+
+            <%= f.label :habit_title %>
+            <%= f.text_field :habit_title, class: 'form-control' %>
+            
+            <%= f.label :habit_description %>
+            <%= f.text_field :habit_description, class: 'form-control' %>
+            
+            <%= f.submit "Start work on my habit", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
