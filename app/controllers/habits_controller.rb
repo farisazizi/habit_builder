@@ -10,11 +10,8 @@ class HabitsController < ApplicationController
   # GET /habits/1
   # GET /habits/1.json
   def show
-<<<<<<< HEAD
     #@habits = Habit.find(habit_params)
-=======
     @habit = Habit.find(params[:id])
->>>>>>> 5016dc05f4976c958bd195be2f33ff5a1c3125aa
   end
 
   # GET /habits/new
