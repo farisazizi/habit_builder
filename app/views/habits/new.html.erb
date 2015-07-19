@@ -3,38 +3,9 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_for(@habit) do |f| %>
-            
-            <%= f.label :Title %>
+            <%= render 'habits/form', f: f %>
             <br></br>
-            <label for "inform">Choose a title or choose others to insert your own title : </label>
-            <br></br>
-            <button type="button", onclick = "display(this)">Self-Improvement</button>
-            <button type="button", onclick = "display(this)">Fitness</button>
-            <button type="button", onclick = "display(this)">Reading</button>
-            <br></br>
-            <button type="button", onclick = "display(this)">Social</button>
-            <button type="button", onclick = "display(this)">Study</button>
-            <button type="button", onclick = "display(this)">Work</button>
-            <br></br>
-            <button type="button", onclick = "display(this)">Arts</button>
-            <button type="button", onclick = "display(this)">Finance</button>
-            <button type="button", onclick = "display(this)">Others</button>
-            <br></br>
-            <label for "title">Habit Title</label>
-            <br></br>
-            <%= f.text_field :habit_title, class: 'form-control', id: 'txtField1' %>
-            <br></br>
-            <%= f.label :habit_description %>
-            <br></br>
-            <%= f.text_field :habit_description, class: 'form-control' %>
-            
             <%= f.submit "Start work on my habit", class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>
-
-<script>
-    function display(id){
-        document.getElementById("txtField1").value = id.innerHTML;
-    }
-</script>

@@ -14,11 +14,10 @@
 ActiveRecord::Schema.define(version: 20150621060335) do
 
   create_table "habits", force: :cascade do |t|
+    t.string   "habit_category"
     t.string   "habit_title",       null: false
-    t.string   "habit_description"
-    t.integer  "days_practised"
-    t.integer  "practise_streak"
-    t.boolean  "habit_done"
+    t.text   "habit_description"
+    t.integer  "habit_duration"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

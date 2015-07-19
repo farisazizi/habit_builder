@@ -1,37 +1,25 @@
-<%= form_for(@habit) do |f| %>
-  <% if @habit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@habit.errors.count, "error") %> prohibited this habit from being saved:</h2>
+<%= render 'habits/error_message', object: f.object %>
 
-      <ul>
-      <% @habit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= f.label :habit_category, "Category" %>
+<% collection = [    ['Self-improvement', 'Self-improvement'],
+                     ['Fitness', 'Fitness'],
+                     ['Reading', 'Reading'],
+                     ['Social', 'Social'],
+                     ['Study', 'Study'],
+                     ['Work', 'Work'],
+                     ['Arts', 'Arts'],
+                     ['Finance', 'Finance'],
+                     ['Others', 'Others']
+                ]%>
+<%= f.select :habit_category, collection %>
 
-  <div class="field">
-    <%= f.label :Title %><br>
-    <%= f.text_field :habit_title %>
-  </div>
-  <div class="field">
-    <%= f.label :Description %><br>
-    <%= f.text_field :habit_description %>
-  </div>
-  <div class="field">
-    <%= f.label :Total_Practised_Days %><br>
-    <%= f.text_field :days_practised %>
-  </div>
-  <div class="field">
-    <%= f.label :Longest_Streak %><br>
-    <%= f.text_field :practise_streak %>
-  </div>
-  <div class="field">
-    <%= f.label :Status %><br>
-    <%= f.check_box :habit_done %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= f.label :habit_title, "Title" %>
+<%= f.text_field :habit_title %>
+
+<%= f.label :habit_description, "Description" %>
+<%= f.text_field :habit_description %>
+
+<%= f.label :habit_duration, "Duration" %>
+<% collectionD = [    ['21','21']   ]%>
+<%= f.select :habit_duration, collectionD %>
+
