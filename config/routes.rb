@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'signup' => 'users#new'
-  get 'history' => 'tracker#home'
+  get 'start' => 'tracker#start'
   get 'progress' => 'tracker#index'
   resources :tracks
   get 'newhabit' => 'habits#new'

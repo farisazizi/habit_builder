@@ -73,4 +73,8 @@ class HabitsController < ApplicationController
     def habit_params
       params.require(:habit).permit(:habit_category, :habit_title, :habit_description, :habit_duration)
     end
+    
+    def track_params
+      
+    end
 end
