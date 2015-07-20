@@ -8,14 +8,23 @@
 }
 /* forms */
 h1{
-  margin-top: 05px;
-  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 150px;
+  text-align: left;
+  font-family: "Georgia", Georgia, serif;
+  font-style: italic;
+  font-size: 45px;
 }
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-family: "Georgia", Georgia, serif;
+  font-style: normal;
+  font-size: 20px;
   @include box_sizing;
 }
 
@@ -24,8 +33,10 @@ input {
 }
 
 #error_explanation {
+  font-size: 20px;
   color: red;
   ul {
+    font-size: 20px;
     color: red;
     margin: 0 0 30px 0;
   }

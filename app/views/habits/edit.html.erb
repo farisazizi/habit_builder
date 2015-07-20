@@ -1,6 +1,17 @@
-<h1>Editing Habit</h1>
+<h1>Make your habit sounds stronger !</h1>
 
-<%= render 'form' %>
+<div class="row">
+    <div class="col-md-6 col-md-offset-1">
+        <%= form_for(@habit) do |f| %>
+            <%= render 'habits/form', f: f %>
+            <br></br>
+            <%= f.submit "Ready to go !", class: "btn btn-primary" %>
+        <% end %>
+        <br></br>
+        <br></br>
+        <%= link_to 'Show', @habit %> |
+        <%= link_to 'Back', habits_path %>
+    </div>
+</div>
 
-<%= link_to 'Show', @habit %> |
-<%= link_to 'Back', habits_path %>
+
