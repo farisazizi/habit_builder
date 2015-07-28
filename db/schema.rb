@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621060335) do
+ActiveRecord::Schema.define(version: 20150725091723) do
 
   create_table "habits", force: :cascade do |t|
     t.string   "habit_category"
@@ -24,9 +24,16 @@ ActiveRecord::Schema.define(version: 20150621060335) do
 
   create_table "tracks", force: :cascade do |t|
     t.string   "name"
-    t.string   "date"
+    t.string   "startdate"
     t.integer  "streak"
-    t.boolean  "habit_done"
+    t.integer  "compday"
+    t.integer  "skipdays"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "updates", force: :cascade do |t|
+    t.boolean  "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
