@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725091723) do
+ActiveRecord::Schema.define(version: 20150731130049) do
 
   create_table "habits", force: :cascade do |t|
     t.string   "habit_category"
     t.string   "habit_title",       null: false
-    t.text   "habit_description"
+    t.text     "habit_description"
     t.integer  "habit_duration"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20150725091723) do
     t.integer  "skipdays"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "habit_id"
   end
+
+  add_index "tracks", ["habit_id"], name: "index_tracks_on_habit_id"
 
   create_table "updates", force: :cascade do |t|
     t.boolean  "answer"

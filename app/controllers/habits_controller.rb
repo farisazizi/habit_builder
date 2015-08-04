@@ -17,6 +17,7 @@ class HabitsController < ApplicationController
   # GET /habits/new
   def new
     @habit = Habit.new
+    # @track = @order = @customer.orders.create(order_date: Time.now)
   end
 
   # GET /habits/1/edit
@@ -27,11 +28,13 @@ class HabitsController < ApplicationController
   # POST /habits.json
   def create
     @habit = Habit.new(habit_params)
-
+    @track = @habit.create_track(streak: 0)
     respond_to do |format|
       if @habit.save
         format.html { redirect_to @habit, notice: 'Habit was successfully created.' }
         format.json { render :show, status: :created, location: @habit }
+        
+        
       else
         format.html { render :new }
         format.json { render json: @habit.errors, status: :unprocessable_entity }
@@ -71,10 +74,10 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:habit_category, :habit_title, :habit_description, :habit_duration)
+       params.require(:habit).permit( :habit_title)
     end
     
     def track_params
-      
+      params.require(:track).permit(:name, :date, :streak, :habit_done)
     end
 end
