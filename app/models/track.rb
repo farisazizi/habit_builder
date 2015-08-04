@@ -3,6 +3,6 @@ class Track < ActiveRecord::Base
     before_save :default_values
     
     def default_values
-        self.streak ||= '0'
+         self.streak ||= '0'
     end
 end

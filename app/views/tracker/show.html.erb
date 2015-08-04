@@ -1,11 +1,11 @@
 <div class="page-header">
-  <h1>User's Name<small>Habit number</small></h1>
+
 </div>
 
 <div class="row ">
     <aside class="col-md-4">
-        <p>The Habit Starts At</p>
-        <h1><%= @track.date %></h1>
+        <p>The Habit Starts </p>
+        <h1><%= @track.created_at.strftime("%b %d, %Y") %></h1>
         <p>The Habit is at</p>
         <h1><%= @track.streak %> days</h1>
         <div class="progress">
@@ -13,9 +13,9 @@
             <%= @track.streak %> days
           </div>
         </div>
-        <p>Completion of the Habit</p>
-        <h1><%= @track.habit_done %></h1>
+      
     </aside>
 </div>
 
+<%= link_to 'Back', habits_path %>
 
