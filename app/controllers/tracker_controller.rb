@@ -1,8 +1,7 @@
 class TrackerController < ApplicationController
 
     def index
-        # @track = Track.find(2)
-        @track = Track.all
+       @tracks = Track.all
     end
     
     def new
@@ -13,6 +12,10 @@ class TrackerController < ApplicationController
         @track = Track.find(params[:id])
     end
     
+    def progress
+        @track = Track.find(params[:id])
+    end
+        
     def edit
     end
     
@@ -20,10 +23,14 @@ class TrackerController < ApplicationController
         @track = Track.new(track_params)
     end
     
+    def hello
+        
+    end
+    
     private
     
     def track_params
-        params.require(:track).permit( :name, :date, :streak, :habit_done)
+        params.require(:track).permit( :name, :streak, :habit_done)
     end
     
 end
