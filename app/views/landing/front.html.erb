@@ -31,7 +31,7 @@
     <% @habits.each do |habit| %>
       <tr>
         <td><%= habit.habit_title %></td>
-        <td><%= link_to 'Show', progress_path %></td>
+        <td><%= link_to 'Show Progress', habit %></td>
         <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
         <td><%= link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
