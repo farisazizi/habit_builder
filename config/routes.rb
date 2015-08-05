@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'signup' => 'users#new'
   get 'newhabit' => 'habits#new'
+  get 'all' => 'users#all'
   resources :habits
   resources :tracks, controller: "tracker" 
   resources :users
