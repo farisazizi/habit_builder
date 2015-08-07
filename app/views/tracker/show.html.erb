@@ -1,15 +1,26 @@
-<div class="page-header">
+<div class="page-header"></div>
 
+<div class="row ">
+    <aside class="col-md-8">
+      <h2>Have you done your habit Today? </h2>
+      <!--<button type="button" class="btn btn-default">Yes</button>-->
+        <%= link_to 'YES', tracker_increase_streak_path(track_id: @track.id), method: :post , class: "btn btn-lg btn-success" %>
+        <%= link_to 'NO', '#', class: "btn btn-lg btn-danger" %>
+         
+    </aside>
+    
 </div>
+
+
 
 <div class="row ">
     <aside class="col-md-4">
         <p>The Habit Starts </p>
         <h1><%= @track.created_at.strftime("%b %d, %Y") %></h1>
-        <p>The Habit is at</p>
+        <p>The Habit is going for</p>
         <h1><%= @track.streak %> days</h1>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@track.streak.to_f/ 21 * 100).round %>%;">
             <%= @track.streak %> days
           </div>
         </div>
