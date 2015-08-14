@@ -1,15 +1,24 @@
 <div class="page-header"></div>
 
-<div class="row ">
-    <aside class="col-md-8">
-      <h2>Have you done your habit Today? </h2>
+
+
+<% if @track.streak >= 21 %>
+  <h1>!!!!!!!!!!Congratulations You have Built Your Habit!!!!!!!!!</h1>
+  <h2>Completed on <%= Time.now.strftime("%m/%d/%Y") %></h2>
+
+<% else %>
+    <div class="row ">
+      <aside class="col-md-8">
+        <h2>Have you done your habit Today? </h2>
       
-        <%= link_to 'YES', tracker_increase_streak_path(track_id: @track.id), method: :post , class: "btn btn-lg btn-success" %>
-        <%= link_to 'NO', tracker_reset_streak_path(track_id: @track.id), method: :post, class: "btn btn-lg btn-danger" %>
+          <%= link_to 'YES', tracker_increase_streak_path(track_id: @track.id), method: :post , class: "btn btn-lg btn-success" %>
+          <%= link_to 'NO', tracker_reset_streak_path(track_id: @track.id), method: :post, class: "btn btn-lg btn-danger" %>
          
-    </aside>
-    
-</div>
+      </aside>
+    </div>
+
+          
+<% end %>
 
 
 
@@ -24,9 +33,12 @@
             <%= @track.streak %> days
           </div>
         </div>
+        
+        <p>The Longest streak is</p>
+        <h1><%= @track.compday %> days</h1>
       
     </aside>
 </div>
 
-<%= link_to 'Back', habits_path %>
+<%= link_to 'Back', root_url %>
 

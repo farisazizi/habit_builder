@@ -4,5 +4,6 @@ class Track < ActiveRecord::Base
     
     def default_values
          self.streak ||= '0'
+         self.compday ||= '0'
     end
 end
