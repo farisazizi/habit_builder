@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :habits
   resources :tracks, controller: "tracker" 
   post 'tracker/increase_streak' => 'tracker/increase_streak'
+  post 'tracker/reset_streak' => 'tracker/reset_streak'
   resources :users
   
 end

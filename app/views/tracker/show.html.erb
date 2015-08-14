@@ -3,9 +3,9 @@
 <div class="row ">
     <aside class="col-md-8">
       <h2>Have you done your habit Today? </h2>
-      <!--<button type="button" class="btn btn-default">Yes</button>-->
+      
         <%= link_to 'YES', tracker_increase_streak_path(track_id: @track.id), method: :post , class: "btn btn-lg btn-success" %>
-        <%= link_to 'NO', '#', class: "btn btn-lg btn-danger" %>
+        <%= link_to 'NO', tracker_reset_streak_path(track_id: @track.id), method: :post, class: "btn btn-lg btn-danger" %>
          
     </aside>
     

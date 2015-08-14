@@ -39,6 +39,18 @@ class TrackerController < ApplicationController
         
     end
     
+    def reset_streak
+        track = Track.find(params[:track_id])
+        track.streak = 0
+            
+        if track.save
+            notification = 'Successfully Updated'
+        else
+           notification = 'Failed to update' 
+        end
+        redirect_to track_path(track), notice: notification
+    end
+    
     
     private
     
