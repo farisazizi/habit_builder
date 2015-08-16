@@ -24,7 +24,7 @@
 
 <div class="row ">
     <aside class="col-md-4">
-        <p>The Habit Starts </p>
+        <p>The Habit Created at </p>
         <h1><%= @track.created_at.strftime("%b %d, %Y") %></h1>
         <p>The Habit is going for</p>
         <h1><%= @track.streak %> days</h1>
@@ -36,6 +36,9 @@
         
         <p>The Longest streak is</p>
         <h1><%= @track.compday %> days</h1>
+        
+        <p>You have skip your habit for </p>
+        <h1><%= @track.skipdays %> days</h1>
       
     </aside>
 </div>

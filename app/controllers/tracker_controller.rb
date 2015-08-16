@@ -44,7 +44,7 @@ class TrackerController < ApplicationController
     def reset_streak
         track = Track.find(params[:track_id])
         track.streak = 0
-            
+        track.increment(:skipdays, 1) 
         if track.save
             notification = 'Successfully Updated'
         else
@@ -53,6 +53,10 @@ class TrackerController < ApplicationController
         redirect_to track_path(track), notice: notification
     end
     
+    def historypage
+        @habits = Habit.all
+        @tracks = Track.all
+    end
     
     private
     
