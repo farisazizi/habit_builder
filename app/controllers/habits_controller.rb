@@ -68,7 +68,7 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-       params.require(:habit).permit(:habit_category, :habit_title, :habit_description, :habit_duration)
+       params.require(:habit).permit(:habit_category, :habit_title, :habit_description, :habit_duration,:current_user)
     end
     
     def track_params

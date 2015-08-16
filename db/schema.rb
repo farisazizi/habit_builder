@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816043753) do
+ActiveRecord::Schema.define(version: 20150816164251) do
 
   create_table "habits", force: :cascade do |t|
     t.string   "habit_category"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20150816043753) do
     t.integer  "habit_duration"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "user_id"
   end
+
+  add_index "habits", ["user_id"], name: "index_habits_on_user_id"
 
   create_table "tracks", force: :cascade do |t|
     t.string   "name"
