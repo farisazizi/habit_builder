@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731130049) do
+ActiveRecord::Schema.define(version: 20150816043753) do
 
   create_table "habits", force: :cascade do |t|
     t.string   "habit_category"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150731130049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "habit_id"
+    t.date     "newstart"
+    t.date     "longdate"
   end
 
   add_index "tracks", ["habit_id"], name: "index_tracks_on_habit_id"
