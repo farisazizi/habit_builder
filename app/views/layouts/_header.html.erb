@@ -1,29 +1,87 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Habit Builder", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Sign up", signup_path %></li>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+<!--<header class="navbar navbar-fixed-top navbar-default" role="navigation">-->
+  
+
+<!--    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> -->
+<!--    <span class="sr-only">Toggle navigation</span>-->
+<!--    <span class="icon-bar"></span>-->
+<!--    <span class="icon-bar"></span>-->
+<!--    <span class="icon-bar"></span>-->
+<!--    </button>-->
+    
+<!--     <%= link_to "Habit Builder", root_path, id: "logo" %>-->
+<!--    <div class="navbar-collapse collapse"> -->
+    
+<!--      <ul class="nav navbar-nav navbar-right">-->
+<!--        <li><%= link_to "Home", root_path %></li>-->
+        
+<!--        <% if logged_in? %>-->
+<!--          <li><%= link_to "Users", '#' %></li>-->
+<!--          <li class="dropdown">-->
+<!--            <a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+<!--              Account <b class="caret"></b>-->
+<!--            </a>-->
+<!--            <ul class="dropdown-menu">-->
+              
+<!--              <li><%= link_to "Settings", '#' %></li>-->
+<!--              <li class="divider"></li>-->
+<!--              <li>-->
+<!--                <%= link_to "Log out", logout_path, method: "delete" %>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </li>-->
+          
+<!--        <% else %>-->
+<!--          <li><%= link_to "Sign up", signup_path %></li>-->
+<!--          <li><%= link_to "Log in", login_path %></li>-->
+          
+<!--        <% end %>-->
+<!--      </ul>-->
+
+   
+<!--  </div>-->
+<!--</header>-->
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_flicker", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
+    <header>
+    <!-- start menu -->
+    <div id="templatemo_home">
+    	<div class="templatemo_top">
+      <div class="container templatemo_container">
+        <div class="row">
+          <div class="col-sm-3 col-md-3">
+            <div class="logo">
+              <a href="/"><img src= <%= asset_path "images/templatemo_logo.png" %> alt="smoothy html5 template"></a>
+            </div>
+          </div>
+          <div class="col-sm-9 col-md-9 templatemo_col9">
+          	<div id="top-menu">
+            <nav class="mainMenu">
+              <ul class="nav">
+                <li><a class="menu" href="/">Home</a></li>
+                <li><a class="menu" href="/#templatemo_portfolio">Portfolio</a></li>
+                <li><a class="menu" href="/#templatemo_blog">Blog</a></li>
+                <li><a class="menu" href="/#templatemo_contact">Contact</a></li>
+                <li><%= link_to "Sign up", signup_path %></li>
+                <li><%= link_to "Login", login_path %></li>
+              </ul>
+            </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="clear"></div>
+    <!-- end menu -->
+
+  </header>
