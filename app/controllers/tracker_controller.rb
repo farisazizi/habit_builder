@@ -31,6 +31,7 @@ class TrackerController < ApplicationController
         track.increment(:streak, 1) unless track.streak > 20
         #to keep track of longest streak
         track.compday = track.streak unless track.streak <= track.compday
+        track.newstart = Time.now unless track.streak != 0
             
         if track.save
             notification = 'Successfully Updated'
@@ -45,6 +46,7 @@ class TrackerController < ApplicationController
         track = Track.find(params[:track_id])
         track.streak = 0
         track.increment(:skipdays, 1) 
+        track.longdate = Time.now
         if track.save
             notification = 'Successfully Updated'
         else
