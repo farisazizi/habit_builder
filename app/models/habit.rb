@@ -4,7 +4,6 @@ class Habit < ActiveRecord::Base
     
     has_one :track, dependent: :destroy
 
-  
     # def make_tracker
     #   self.track = Track.new
     #   self.track.save
