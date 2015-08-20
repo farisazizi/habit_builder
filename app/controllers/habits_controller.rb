@@ -27,8 +27,7 @@ class HabitsController < ApplicationController
   # POST /habits
   # POST /habits.json
   def create
-      @user = User.find_by(id: session[:user_id])
-      @habit = @user.habits.new(habit_params)
+      @habit = current_user.habits.new(habit_params)
       @track = @habit.create_track(streak: 0, longdate: Time.now, newstart: Time.now)
       respond_to do |format|
         if @habit.save
@@ -70,7 +69,7 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-       params.require(:habit).permit(:habit_category, :habit_title, :habit_description, :habit_duration,:current_user)
+       params.require(:habit).permit(:habit_category, :habit_title, :habit_description, :habit_duration)
     end
     
     def track_params
