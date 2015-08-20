@@ -28,7 +28,7 @@ class HabitsController < ApplicationController
   # POST /habits.json
   def create
     @habit = Habit.new(habit_params)
-    @track = @habit.create_track(streak: 0)
+    @track = @habit.create_track(streak: 0, longdate: Time.now, newstart: Time.now)
     respond_to do |format|
       if @habit.save
         format.html { redirect_to root_url, notice: 'Habit was successfully created.' }
