@@ -28,14 +28,18 @@ class TrackerController < ApplicationController
 
     def increase_streak
         track = Track.find(params[:track_id])
-        track.increment(:streak, 1) unless track.streak > 20
-        #to keep track of longest streak
-        track.compday = track.streak unless track.streak <= track.compday
+        if track.checker < 1
+            track.increment(:streak, 1) unless track.streak > 20 
+            #to keep track of longest streak
+            track.compday = track.streak unless track.streak <= track.compday
+            track.checker += 1
+            if track.save
+                notification = 'Successfully Updated'
+                
+            else
+                notification = 'Failed to update' 
+            end
             
-        if track.save
-            notification = 'Successfully Updated'
-        else
-           notification = 'Failed to update' 
         end
         redirect_to track_path(track), notice: notification
         
@@ -43,12 +47,15 @@ class TrackerController < ApplicationController
     
     def reset_streak
         track = Track.find(params[:track_id])
-        track.streak = 0
-        track.increment(:skipdays, 1) 
-        if track.save
-            notification = 'Successfully Updated'
-        else
-           notification = 'Failed to update' 
+        if track.checker < 1    
+            track.streak = 0
+            track.increment(:skipdays, 1) 
+            if track.save
+                notification = 'Successfully Updated'
+            else
+                notification = 'Failed to update' 
+            end
+            track.checker += 1
         end
         redirect_to track_path(track), notice: notification
     end

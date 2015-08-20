@@ -6,5 +6,6 @@ class Track < ActiveRecord::Base
          self.streak ||= '0'
          self.compday ||= '0'
          self.skipdays ||= '0'
+         self.checker ||= '0'
     end
 end
