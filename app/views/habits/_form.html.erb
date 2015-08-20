@@ -1,3 +1,4 @@
+
 <%= render 'habits/error_message', object: f.object %>
 
 <%= f.label :habit_category, "Category" %>
@@ -12,12 +13,17 @@
                      ['Others', 'Others']
                 ]%>
 <%= f.select :habit_category, collection %>
+<br><br>
 
 <%= f.label :habit_title, "Title" %>
-<%= f.text_field :habit_title %>
+<%= f.text_field :habit_title, class: 'form-control' %>
+
+<br>
 
 <%= f.label :habit_description, "Description" %>
-<%= f.text_field :habit_description %>
+<%= f.text_field :habit_description, class: 'form-control' %>
+
+<br>
 
 <%= f.label :habit_duration, "Duration" %>
 <% collectionD = [    ['21','21']   ]%>

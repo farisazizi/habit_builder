@@ -1,3 +1,4 @@
+<% provide(:title, 'Home') %>
 
 <% if logged_in? %>
 
@@ -6,9 +7,9 @@
  <% end %>
  <br> 
  
- <div class="section group">
+ <div class="section1 group">
  	
-		<div class="col span_1_of_2 panel panel-default">
+		<div class="panel panel-success">
 		  <div class="panel-heading">
 		    <h3 class="panel-title ">User Info</h3>
 		  </div>
@@ -18,19 +19,37 @@
       	<%= @user.email %>
       
   		</div>
-		</div>
+		</div> <!-- end panel-->
 		
-		<div class="col span_1_of_2 col-md-3 col-md-offset-3">
-  		<button class="btn btn-primary card_habit">
-			<span class="glyphicon glyphicon-plus text-center " aria-hidden="true"></span>
-			<br>
-		    <%= link_to "Add new habit" , newhabit_path %> 
-		   </button>
-		</div>
-</div>
+		
+      <a class="btn btn-default btn-success" href="habits/new" role="button">Add new habit</a>
+    	  <!--<%= link_to "Add new habit" , newhabit_path %> -->
+    	
+ 
+ <!-- if user have habits show name here -->   	
+ 
+    	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Habit 1
+      </button>
+    	
+    	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Habit 2
+      </button>
+    	
+	</div> <!-- end section-->
+	
+<!--	<div class="section2 ">-->
+<!--		<div class="col span_1_of_2 col-md-3 col-md-offset-3 cardbox">-->
+<!--  		<button class="btn btn-primary card_addhabit">-->
+<!--			<span class="glyphicon glyphicon-plus text-center " aria-hidden="true"></span>-->
+<!--			<br>-->
+<!--		    <%= link_to "Add new habit" , newhabit_path %> -->
+<!--		   </button>-->
+<!--		</div>-->
+<!--</div>-->
+    
 
-
-<h1>Listing Habits</h1>
+<br><br>
 
 		<div class="collapse" id="collapseExample">
 		  <div class="well">
@@ -60,19 +79,11 @@
 <br>
 <% else %>
 
-  <!--<div class="center jumbotron">-->
-  <!--  <h1>Welcome to the Habit Builder</h1>-->
-    
-  <!--  <h2>-->
-  <!--    This is the home page!-->
-  <!--  </h2>-->
-  
-  <!--  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>-->
-  <!--</div>-->
+
   
     <!-- home -->
     <div class="clear"></div>
-    <div class="templatemo_reasonbg home">
+    <div class="templatemo_reasonbg home-front">
     	<h2>Want to feel success?</h2>
        		<p>Build a new habit with our apps. </p>
             <div class="clear height10"></div>
@@ -342,33 +353,18 @@
         <div class="row">
           <div class="col-md-12">
             <div class="secHeader">
-              <h2 class="text-center">Our partners</h2>
-              <p class="text-center">Etiam faucibus turpis id ipsum egestas porta. Cras in aliquet purus, ac varius turpis.</p>
+               <div class="center jumbotron">
+                <h1>Can't wait to join Habit Builder</h1>
+            
+              
+                <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+                <%= link_to "Login!", login_path, class: "btn btn-lg btn-primary" %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="partnerWrap">
-        <div class="slideshow" 
-            data-cycle-fx=carousel
-            data-cycle-timeout=0
-            data-cycle-carousel-visible=4
-            data-cycle-next="#next"
-            data-cycle-prev="#prev"
-            data-cycle-carousel-fluid=true
-            >
-            <img alt="partner 1" src="images/partners/partner1.jpg" >
-            <img alt="partner 2" src="images/partners/partner2.jpg" >
-            <img alt="partner 3" src="images/partners/partner3.jpg" >
-            <img alt="partner 4" src="images/partners/partner4.jpg" >
-            <img alt="partner 5" src="images/partners/partner5.jpg" >
-            <img alt="partner 6" src="images/partners/partner6.jpg" >
-            <img alt="partner 7" src="images/partners/partner7.jpg" >
-            <img alt="partner 8" src="images/partners/partner8.jpg" >
-        </div>
-        <a href="#" id="prev">&lt;&lt; Prev </a>
-        <a href="#" id="next"> Next &gt;&gt; </a>
-      </div>
+
 
     </div>
     <!--Our Partner End-->
