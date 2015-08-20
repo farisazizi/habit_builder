@@ -27,15 +27,17 @@ class HabitsController < ApplicationController
   # POST /habits
   # POST /habits.json
   def create
-    @habit = Habit.new(habit_params)
-    @track = @habit.create_track(streak: 0, longdate: Time.now, newstart: Time.now)
-    respond_to do |format|
-      if @habit.save
-        format.html { redirect_to root_url, notice: 'Habit was successfully created.' }
-      else
-        format.html { render :new }
+      @user = User.find_by(id: session[:user_id])
+      @habit = @user.habits.new(habit_params)
+      @track = @habit.create_track(streak: 0, longdate: Time.now, newstart: Time.now)
+      respond_to do |format|
+        if @habit.save
+          format.html { redirect_to root_url, notice: 'Habit was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
-    end
+    
   end
 
   # PATCH/PUT /habits/1
