@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150820172207) do
     t.string   "habit_title"
     t.text     "habit_description"
     t.integer  "habit_duration"
+    t.integer  "user_id",           null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

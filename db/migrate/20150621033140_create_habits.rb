@@ -5,6 +5,7 @@ class CreateHabits < ActiveRecord::Migration
       t.string :habit_title, :null => false
       t.text :habit_description
       t.integer :habit_duration
+      t.integer :user_id, :null => false
       
       t.timestamps null: false
     end
