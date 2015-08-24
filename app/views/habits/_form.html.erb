@@ -2,31 +2,48 @@
 <%= render 'habits/error_message', object: f.object %>
 
 <%= f.label :habit_category, "Category" %>
-<% collection = [    ['Self-improvement', 'Self-improvement'],
-                     ['Fitness', 'Fitness'],
-                     ['Reading', 'Reading'],
-                     ['Social', 'Social'],
-                     ['Study', 'Study'],
-                     ['Work', 'Work'],
-                     ['Arts', 'Arts'],
-                     ['Finance', 'Finance'],
-                     ['Others', 'Others']
+<% collection = [   ['LifeStyle / Enrichment', 'LifeStyle / Enrichment'], 
+                    ['Quit Bad Habit', 'Quit Bad Habit'],
+                    ['Keep Fit and Healthy', 'Keep Fit and Healthy']
                 ]%>
 <%= f.select :habit_category, collection %>
-<br><br>
+<br><br><br>
 
-<%= f.label :habit_title, "Title" %>
-<%= f.text_field :habit_title, class: 'form-control' %>
-
+<%= f.label :habit_title, "Here's some suggestions for your habit title"%>
 <br>
+<% collectionT = [   [' ', ' '],
+                     ['Exercise', 'Exercise'],
+                     ['Have Breakfast', 'Have Breakfast'],
+                     ['Meditation', 'Meditation'],
+                     ['Read Favourite Book', 'Read Favourite Book'],
+                     ['8 Glasses of Water a day', '8 Glasses of Water a day'],
+                     ['An apple a day', 'An apple a day'],
+                     ['Wake up early', 'Wake up early'],
+                     ['Write a to-do-list', 'Write a to-do-list'],
+                     ['Check News of the day', 'Check News of the day'],
+                     ['Smile to stranger', 'Smile to stranger'],
+                     ['No Smoking', 'No Smoking'],
+                     ['No Snack', 'No Snack'],
+                     ['No Fast Food', 'No Fast Food'],
+                     ['No Alcohol', 'No Alcohol'],
+                     ['No Coffee', 'No Coffee'],
+                     ['No Social Media', 'No Social Media'],
+                     ['Others', 'Others']
+                ]%>
+<%= f.select :habit_title, collectionT %>
+<br><br><br>
+<%= f.label :habit_title, "Title" %>
+<%= f.text_field :habit_title, class: 'form-control'%>
+
+
+<br><br>
 
 <%= f.label :habit_description, "Description" %>
 <%= f.text_field :habit_description, class: 'form-control' %>
 
-<br>
+<br><br>
 
 <%= f.label :habit_duration, "Duration" %>
 <% collectionD = [    ['21','21']   ]%>
 <%= f.select :habit_duration, collectionD %>
-
-
+<br><br>
