@@ -25,24 +25,26 @@
         </div>  
         
       <% end %>
-      
-              <p>The Habit Created at </p>
-              <h1><%= @track.created_at.strftime("%b %d, %Y") %></h1>
-              <p>The Habit is going for</p>
-              <h1><%= @track.streak %> days</h1>
+              <br>
+              <p>The Habit created on <h2><%= @track.created_at.strftime("%b %d, %Y") %></h2></p>
+              
+              <br>
+              <p>The Habit is already practised for <h2><%= @track.streak %> days</h2></p><br>
+              
               <p>starting from <%= @track.newstart %></p>
+              <br>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@track.streak.to_f/ 21 * 100).round %>%;">
                   <%= @track.streak %> days
                 </div>
               </div>
               
-              <p>The Longest streak is</p>
-              <h1><%= @track.compday %> days</h1>
+              <p>The Longest streak is <h2><%= @track.compday %> days</h2> </p><br>
               <p>from <%= @track.newstart %> to <%= @track.longdate %></p>
               
-              <p>You have skip your habit for </p>
-              <h1><%= @track.skipdays %> days</h1>
+              <br>
+              <p>You have skip your habit for <h2><%= @track.skipdays %> days</h2></p>
+              <br><br>
 
       <%= link_to 'Back', root_url %>
     
