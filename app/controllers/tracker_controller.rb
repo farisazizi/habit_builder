@@ -28,7 +28,7 @@ class TrackerController < ApplicationController
 
     def increase_streak
         track = Track.find(params[:track_id])
-        if track.checker < 1
+        if track.checker< 1
             track.increment(:streak, 1) unless track.streak > 20 
             #to keep track of longest streak
             track.compday = track.streak unless track.streak <= track.compday
@@ -47,17 +47,25 @@ class TrackerController < ApplicationController
     
     def reset_streak
         track = Track.find(params[:track_id])
-        if track.checker < 1    
+        if track.checker< 1    
             track.streak = 0
             track.increment(:skipdays, 1) 
+            track.checker += 1
             if track.save
                 notification = 'Successfully Updated'
             else
                 notification = 'Failed to update' 
             end
-            track.checker += 1
+            
         end
         redirect_to track_path(track), notice: notification
+    end
+    
+    def reset_counter
+       track =  Track.find(params[:track_id])
+       track.checker = 0
+       track.save
+       redirect_to track_path(track)
     end
     
     def historypage
