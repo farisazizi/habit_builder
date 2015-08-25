@@ -59,7 +59,10 @@
                 <Strong><u>Habit 1 Details</u></Strong><br><br>
                 <Strong>Category : </Strong><%= @habit.habit_category %>
                 <Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title : </Strong><%= @habit.habit_title %><br><br>
-                <Strong>Description : </Strong><%= @habit.habit_description %>
+                <Strong>Description : </Strong><%= @habit.habit_description %><br><br>
+                <%= link_to 'Show Progress', track_path(@habit.id), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Edit', edit_habit_path(@habit), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Destroy', @habit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
            </div>  
         </div>
 		  </div>
@@ -67,11 +70,12 @@
 		
 		<div class="collapse" id="collapseExample1">
 		  <div class="well">
-		    <Strong>Habit 2 Details</Strong>
-		  </div>
-		  <div>
-		    <a class="btn btn-default btn-success" href="habits/new" role="button">Add new habit</a>
-    	  <!--<%= link_to "Add new habit" , newhabit_path %> -->
+		    <div class="row body-form">
+          <div class="col-md-0 col-md-offset-1 " >
+    		    <Strong><u>Habit 2 Details</u></Strong><br><br>
+    		    <a class="btn btn-default btn-success" href="habits/new" role="button">Add new habit</a>
+    	    </div>  
+        </div>
 		  </div>
 		</div>
 	<% elsif @user.habits.count == 2 %>
@@ -84,7 +88,10 @@
                 <Strong><u>Habit 1 Details</u></Strong><br><br>
                 <Strong>Category : </Strong><%= @habit1.habit_category %>
                 <Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title : </Strong><%= @habit1.habit_title %><br><br>
-                <Strong>Description : </Strong><%= @habit1.habit_description %>
+                <Strong>Description : </Strong><%= @habit1.habit_description %><br><br>
+                <%= link_to 'Show Progress', track_path(@habit1.id), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Edit', edit_habit_path(@habit1), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Destroy', @habit1, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
            </div>  
         </div>
 		  </div>
@@ -97,20 +104,33 @@
                 <Strong><u>Habit 2 Details</u></Strong><br><br>
                 <Strong>Category: </Strong><%= @habit2.habit_category %>
                 <Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title: </Strong><%= @habit2.habit_title %><br><br>
-                <Strong>Description: </Strong><%= @habit2.habit_description %>
+                <Strong>Description: </Strong><%= @habit2.habit_description %><br><br>
+                <%= link_to 'Show Progress', track_path(@habit2.id), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Edit', edit_habit_path(@habit2), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Destroy', @habit2, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
            </div>  
         </div>
 		</div>
 	<% else %>
 	  <div class="collapse" id="collapseExample">
 		  <div class="well">
-		    <Strong>Habit 1 Details</Strong>
+		    <div class="row body-form">
+          <div class="col-md-0 col-md-offset-1 " >
+    		    <Strong><u>Habit 1 Details</u></Strong><br><br>
+    		    <a class="btn btn-default btn-success" href="habits/new" role="button">Add new habit</a>
+    	    </div>  
+        </div>
 		  </div>
 		</div>
 		
 		<div class="collapse" id="collapseExample1">
 		  <div class="well">
-		    <Strong>Habit 2 Details</Strong>
+		    <div class="row body-form">
+          <div class="col-md-0 col-md-offset-1 " >
+    		    <Strong><u>Habit 2 Details</u></Strong><br><br>
+    		    <a class="btn btn-default btn-success" href="habits/new" role="button">Add new habit</a>
+    	    </div>  
+        </div>
 		  </div>
 		</div>
 	<% end %>
