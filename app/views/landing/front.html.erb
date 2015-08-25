@@ -27,9 +27,9 @@
     	
  
  <!-- if user have habits show name here -->   	
- 
+ f
     	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Habit 1
+        <%= @user.habits %>
       </button>
     	
     	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -84,15 +84,23 @@
     <!-- home -->
     <div class="clear"></div>
     <div class="templatemo_reasonbg home-front">
-    	<h2>Want to feel success?</h2>
-       		<p>Build a new habit with our apps. </p>
+    	<h2>Want to be successful?</h2>
+       		<p> </p>
             <div class="clear height10"></div>
-	        <div class="fa fa-bell-o"></div>
-            <div class="fa fa-tablet"></div>
-            <div class="fa fa-lock"></div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" checked="checked"> Set Goals that Motivate You
+                <br/><br/>
+                <input type="checkbox" checked="checked"> Make an Action Plan
+                <br/><br/>
+                <input type="checkbox" checked="checked"> Stick With It!
+              </label>
+            </div>
+            
+            
 			<div class="clear height20"></div>
             <a class="btn btn-large btn-primary " href="#templatemo_portfolio">Read More</a>
-    </div>
+      </div>
     <div class="clear"></div>
     
     <!--Our Portfolio Start-->
