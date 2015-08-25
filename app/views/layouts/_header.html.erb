@@ -1,45 +1,4 @@
-<!--<header class="navbar navbar-fixed-top navbar-default" role="navigation">-->
-  
 
-<!--    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> -->
-<!--    <span class="sr-only">Toggle navigation</span>-->
-<!--    <span class="icon-bar"></span>-->
-<!--    <span class="icon-bar"></span>-->
-<!--    <span class="icon-bar"></span>-->
-<!--    </button>-->
-    
-<!--     <%= link_to "Habit Builder", root_path, id: "logo" %>-->
-<!--    <div class="navbar-collapse collapse"> -->
-    
-<!--      <ul class="nav navbar-nav navbar-right">-->
-<!--        <li><%= link_to "Home", root_path %></li>-->
-        
-<!--        <% if logged_in? %>-->
-<!--          <li><%= link_to "Users", '#' %></li>-->
-<!--          <li class="dropdown">-->
-<!--            <a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-<!--              Account <b class="caret"></b>-->
-<!--            </a>-->
-<!--            <ul class="dropdown-menu">-->
-              
-<!--              <li><%= link_to "Settings", '#' %></li>-->
-<!--              <li class="divider"></li>-->
-<!--              <li>-->
-<!--                <%= link_to "Log out", logout_path, method: "delete" %>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </li>-->
-          
-<!--        <% else %>-->
-<!--          <li><%= link_to "Sign up", signup_path %></li>-->
-<!--          <li><%= link_to "Log in", login_path %></li>-->
-          
-<!--        <% end %>-->
-<!--      </ul>-->
-
-   
-<!--  </div>-->
-<!--</header>-->
 
 <script type="text/javascript">
 
@@ -70,14 +29,14 @@ ddsmoothmenu.init({
 
                 <% if logged_in? %>
                 <li><a class="menu" href="/">Home</a></li>
-                <li><a class="menu" href="/">Progress</a></li>
+                <!--<li><a class="menu" href="/">Progress</a></li>-->
                 <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                 
                 <% elsif %>
                 <li><a class="menu" href="/">Home</a></li>
                 <li><a class="menu" href="/#templatemo_portfolio">How</a></li>
-                <li><a class="menu" href="/#templatemo_blog">Meet Our Team</a></li>
-                <li><a class="menu" href="/#templatemo_contact">Contact</a></li>
+                <li><a class="menu" href="/#templatemo_blog">Feedback</a></li>
+                <li><a class="menu" href="/#templatemo_partners">Meet Our Team</a></li>
                 <li><%= link_to "Sign up", signup_path %></li>
                 <li><%= link_to "Login", login_path %></li>
                 <% end %>

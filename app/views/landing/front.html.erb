@@ -17,36 +17,35 @@
       	Name : <%= @user.name %>
       	<br><br>
       	Email : <%= @user.email %>
-      
   		</div>
 		</div> <!-- end panel-->
 		
 		
-      <a class="btn btn-default btn-success" href="habits/new" role="button">Add new habit</a>
-    	  <!--<%= link_to "Add new habit" , newhabit_path %> -->
-    	
+      
+    	  <%= link_to "Add new habit" , newhabit_path, :class => "btn btn-success" %> 
+    
  
  <!-- if user have habits show name here -->   	
- f
-    	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <%= @user.habits %>
-      </button>
+      <% if @user.habits.count == 1 %>
+          <% @habit = @user.habits.first%>
+          
+    	    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <%= @habit.habit_title %>
+          </button>
+      <% elsif @user.habits.count == 2 %>
+      	  <% @habit1 = @user.habits.first%>
+      	  <% @habit2 = @user.habits.last%>
+          
+          <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <%= @habit1.habit_title %>
+          </button>
     	
-    	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-        Habit 2
-      </button>
-    	
+        	<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+            <%= @habit2.habit_title %>
+          </button>
+    	<% end %>
 	</div> <!-- end section-->
 	
-<!--	<div class="section2 ">-->
-<!--		<div class="col span_1_of_2 col-md-3 col-md-offset-3 cardbox">-->
-<!--  		<button class="btn btn-primary card_addhabit">-->
-<!--			<span class="glyphicon glyphicon-plus text-center " aria-hidden="true"></span>-->
-<!--			<br>-->
-<!--		    <%= link_to "Add new habit" , newhabit_path %> -->
-<!--		   </button>-->
-<!--		</div>-->
-<!--</div>-->
     
 
 <br><br>
@@ -61,7 +60,7 @@
                 <Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title : </Strong><%= @habit.habit_title %><br><br>
                 <Strong>Description : </Strong><%= @habit.habit_description %><br><br>
                 <%= link_to 'Show Progress', track_path(@habit.id), :class => "btn btn-default btn-success" %>
-                <%= link_to 'Edit', edit_habit_path(@habit), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Edit', edit_habit_path(@habit), :class => "btn btn-warning" %>
                 <%= link_to 'Destroy', @habit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
            </div>  
         </div>
@@ -90,7 +89,7 @@
                 <Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title : </Strong><%= @habit1.habit_title %><br><br>
                 <Strong>Description : </Strong><%= @habit1.habit_description %><br><br>
                 <%= link_to 'Show Progress', track_path(@habit1.id), :class => "btn btn-default btn-success" %>
-                <%= link_to 'Edit', edit_habit_path(@habit1), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Edit', edit_habit_path(@habit1), :class => "btn btn-warning" %>
                 <%= link_to 'Destroy', @habit1, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
            </div>  
         </div>
@@ -106,9 +105,11 @@
                 <Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title: </Strong><%= @habit2.habit_title %><br><br>
                 <Strong>Description: </Strong><%= @habit2.habit_description %><br><br>
                 <%= link_to 'Show Progress', track_path(@habit2.id), :class => "btn btn-default btn-success" %>
-                <%= link_to 'Edit', edit_habit_path(@habit2), :class => "btn btn-default btn-success" %>
+                <%= link_to 'Edit', edit_habit_path(@habit2), :class => "btn btn-warning" %>
                 <%= link_to 'Destroy', @habit2, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-           </div>  
+           </div> 
+           
+
         </div>
 		</div>
 	<% else %>
@@ -140,7 +141,7 @@
 
 
   
-    <!-- home -->
+    <!-- home SUCCESS-->
     <div class="clear"></div>
     <div class="templatemo_reasonbg home-front">
     	<h2>Want to be successful?</h2>
@@ -158,298 +159,84 @@
             
             
 			<div class="clear height20"></div>
-            <a class="btn btn-large btn-primary " href="#templatemo_portfolio">Read More</a>
+            <a class="btn btn-large btn-success" href="#templatemo_portfolio">Read More</a>
       </div>
     <div class="clear"></div>
     
-    <!--Our Portfolio Start-->
+    <!--Our Portfolio Start HOW-->
     <div class="templatemo_portfolio" id="templatemo_portfolio">
         	<h2>HOW</h2>
-            <p>Donec eget congue ligula, eget pharetra urna. Nam tempor tellus sit amet bibendum dapibus.</p>
-           	
-            <div class="container">
-           	  <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src=<%= asset_path "images/portfolio/1.jpg"%> alt="portfolio 1">
-								<div class="overlay-p">
-									<a href="images/portfolio/1.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Blue Sky</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/2.jpg" alt="portfolio 2">
-								<div class="overlay-p">
-									<a href="images/portfolio/2.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Forest</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/3.jpg" alt="portfolio 3">
-								<div class="overlay-p">
-									<a href="images/portfolio/3.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Forest</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/4.jpg" alt="portfolio 4">
-								<div class="overlay-p">
-									<a href="images/portfolio/4.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Black and White</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-             </div>
-               <div class="clear"></div>
-              <div class="container">
-              		<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/5.jpg" alt="portfolio 5">
-								<div class="overlay-p">
-									<a href="images/portfolio/5.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Rotary</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/6.jpg" alt="portfolio 6">
-								<div class="overlay-p">
-									<a href="images/portfolio/6.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Rotary</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/7.jpg" alt="portfolio 7">
-								<div class="overlay-p">
-									<a href="images/portfolio/7.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Blue Sky</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/8.jpg" alt="portfolio 8">
-								<div class="overlay-p">
-									<a href="images/portfolio/8.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Black and White</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              
-              </div>
-            <a class="btn btn-large btn-primary" href="#templatemo_blog">Continue</a>
-    </div>
-    <!--Our Portfolio End-->
-    <div class="clear"></div>
-    <!--Our Blog Start-->
-    <div class="templatemo_blog" id="templatemo_blog">
-    	<h2>Our blog</h2>
-        	<p>Check out our latest posts.</p>
-        <div class="clear"></div>
-        <div class="container">
-       		<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="28 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Booker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="HTML5, CSS3"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (4)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage01.jpg" alt="blog image 1">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">New Touring</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="26 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="George"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Template, Design"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (8)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage02.jpg" alt="blog image 2">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Coffee Shop</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="24 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Jelly Bean"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Web Design, Portfolio"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (16)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage03.jpg" alt="blog image 3">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Tea Time</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="22 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="John Walker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Logo, Creative"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (32)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage04.jpg" alt="blog image 4">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Mobile First</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-        </div>
-    </div>
-    <!--Our Blog End-->
-	<!--Our Partner Start-->
-    <div class="section6 templatemo_partner" id="templatemo_partners">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="secHeader">
-               <div class="center jumbotron">
-                <h1>Can't wait to join Habit Builder</h1>
+            <p>Follow these steps to be successful!</p>
             
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
+                
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner portpic" role="listbox">
+                    <div class="item active">
+                      <img src=<%= asset_path "images/portfolio/chk.PNG" %> alt="chk">
+                      <div class="carousel-caption">
+                        1. Register an account.
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src=<%= asset_path "images/portfolio/add.PNG"%> alt="add">
+                      <div class="carousel-caption">
+                        2. Add a new habit.
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src=<%= asset_path "images/portfolio/done.PNG"%> alt="done">
+                      <div class="carousel-caption">
+                        3. Do your habit for 21 days.
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              <br> <br>
               
-                <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-                <%= link_to "Login!", login_path, class: "btn btn-lg btn-primary" %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
+            <a class="btn btn-large btn-success" href="#templatemo_blog">Continue</a>
     </div>
-    <!--Our Partner End-->
-    <!--Our Client Start-->
-    <div class="templatemo_reasonbg">
+              
+             
+
+              
+            
+            
+    
+    <!--Our Portfolio End HOW-->
+    <div class="clear"></div>
+    
+    
+     <!--Our Client Start FEEDBACK -->
+    <div class="templatemo_blog" id="templatemo_blog">
     	<h2>What our trainers say?</h2>
         <div class="container">
-          
-        	<div class="col-xs-11 templatemo_col12 templatemo_clientwrapper ">
-            	<div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Duis consequat ut quam ut sollicitudin. Donec eget congue ligula, eget pharetra urna. Nam tempor tellus sit amet bibendum dapibus.</p>
+          <div class="col-xs-11 templatemo_col12 templatemo_clientwrapper">
+            <div class="templatemo_clientimage">
+            	  <p class="templatemo_clientdes">Great app to get you to quit smoking.  --Hakim</p>
             	  <img id='pic' src= <%= asset_path "images/client/1.jpg" %> alt="client image 1" />
                   <div class="clear"></div>
                   <!--<div class="fa fa-circle mleft1"></div>-->
 			  	    </div>
-			  	    
+               
               <div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Nam auctor elementum dolor. Donec euismod, justo sed convallis blandit, ipsum erat mattis lectus, vel pharetra neque enim tristique risus.</p>
+                <p class="templatemo_clientdes">The habit builder app would be useful for anyone who plans to start a new habit by daily reinforcement and tracking of their habit.  --Fadhil</p>
   				      <img src= <%= asset_path "images/client/2.jpg"%> alt="client image 2" /> 
                   <div class="clear"></div>
                   <!--<div class="fa fa-circle mleft2"></div>				 -->
@@ -483,80 +270,64 @@
         
 	</div>
      <div class="clear"></div>
-    <!--Our Client End-->
+    <!--Our Client End FEEDBACK-->
     
+    
+	<!--Our Partner Start MEET OUR TEAM-->
+	
+    <div class="section6 templatemo_partner" id="templatemo_partners">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="secHeader">
+               <h2 class="text-center ">Meet Our Team</h2>
 
-    <!--Footer Start-->
-    <div class="templatemo_footer">
-    	<div class="container">
-       	  <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<h2>About Smoothy</h2>
-                <p>Etiam faucibus turpis id ipsum egestas porta. Cras in aliquet purus, ac varius turpis. Proin nibh mauris, lacinia at tincidunt egestas, tincidunt eleifend urna. Aliquam erat volutpat.</p>
+        
+                 <div class="octo">
+                      <div class="octo1">
+                        <img src= <%= asset_path "images/client/10.PNG"%> alt="client image 10" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left 
+                      </div>
+                </div>
+                <h3>Alden Cheong</h3> <h4>gze.xie@gmail.com</h4>     
+
+               <div class="octo">
+                      <div class="octo1">
+                        <img src= <%= asset_path "images/client/20.PNG"%> alt="client image 20" /> 
+                      </div>
+                    </div>
+                </div>
+                <h3>Faris Azizi</h3> <h4>azizi.faris@gmail.com</h4>     
+                
+               <div class="octo">
+                      <div class="octo1">
+                        <img src= <%= asset_path "images/client/30.jpg"%> alt="client image 30" /> 
+                      </div>
+                    </div>
+                </div>         
+                <h3>Tan Li Teen</h3> <h4>liteen.eh@gmail.com</h4>     
+
+                  <div class="clear"></div>
+				      </div>
+           </div>
           </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<h2>Services</h2>
-                <ul>
-                  <li>Integer condimentum</li>
-                  <li>Quisque eget mi felis</li>
-                  <li>Mauris placerat lacinia</li>
-                  <li>Cras molestie imperdiet</li>
-                  <li>Duis vel consectetur</li>
-                </ul>
-                <div class="clear"></div>
-                <div class="templatemo_morelink"><a href="#">and more... </a></div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<h2>Flicker</h2>
-					<div id="templatemo_flicker" >
-          <ul class="nobullet footer_gallery">
-                <li><a href="images/flicker/1.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s1.jpg" alt="image 1" /></a></li>
-                <li><a href="images/flicker/2.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s2.jpg" alt="image 2" /></a></li>
-                <li><a href="images/flicker/3.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s3.jpg" alt="image 3" /></a></li>
-                <li><a href="images/flicker/4.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s4.jpg" alt="image 4" /></a></li>
-                <li><a href="images/flicker/5.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s5.jpg" alt="image 5" /></a></li>
-          	    <li><a href="images/flicker/6.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s6.jpg" alt="image 6" /></a></li>
-                <li><a href="images/flicker/7.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s7.jpg" alt="image 7" /></a></li>
-                <li><a href="images/flicker/8.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s8.jpg" alt="image 8" /></a></li>
-            </ul>
-            <br style="clear: left" />
         </div>
-          </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            <h2>Contact</h2>
-            	<span class="left col-xs-1 fa fa-map-marker"></span>
-                <span class="right col-xs-11">120-240 Nam bibendum consectetur diam et fringilla</span>
-                <div class="clear height10"></div>
-                <span class="left col-xs-1 fa fa-phone"></span>
-                <span class="right col-xs-11">010-020-0680</span>
-                <div class="clear height10"></div>
-                <span class="left col-xs-1 fa fa-envelope"></span>
-                <span class="right col-xs-11">contact@company.com</span>
-                <div class="clear height10"></div>
-                <span class="left col-xs-1 fa fa-globe"></span>
-                <span class="right col-xs-11">www.company.com</span>
-                <div class="clear"></div>
-            </div>
-        </div>
+      </div>
     </div>
-   <!--Footer End-->
-	<!-- Bottom Start -->
+    <!--Our Partner End MEET OUR TEAM-->
+    
+    	<!-- FOOTER Start -->
+
     <div class="templatemo_bottom">
     	<div class="container">
         	<div class="row">
             	<div class="left">
-                	<span>Copyright © 2084 <a href="#">Your Company Name</a></span>
-                </div>
-                <div class="right">
-                	<a href="#"><div class="fa fa-rss soc"></div></a>
-                    <a href="#"><div class="fa fa-twitter soc"></div></a>
-                    <a href="#"><div class="fa fa-linkedin soc"></div></a>
-                    <a href="#"><div class="fa fa-dribbble soc"></div></a>
-                    <a href="#"><div class="fa fa-facebook soc"></div></a>
+                	<span style="color:white">Copyright © 2015 <a href="/">Habit Builder</a></span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Bottom End -->
+
+    <!-- FOOTER End -->
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- <script src="https://code.jquery.com/jquery.js"></script> -->

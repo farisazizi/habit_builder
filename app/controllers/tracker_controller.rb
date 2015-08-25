@@ -10,6 +10,7 @@ class TrackerController < ApplicationController
     
     def show
         @track = Track.find(params[:id])
+        
     end
     
     def progress

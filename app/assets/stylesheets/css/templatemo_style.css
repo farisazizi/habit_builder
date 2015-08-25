@@ -1,10 +1,3 @@
-/* 
-
-Smoothy Template 
-
-http://www.templatemo.com/free-website-templates/396-smoothy
-
-*/
 
 html, body {
 	font-family: 'Raleway', "Trebuchet MS", Arial, Helvetica, sans-serif; 
@@ -410,6 +403,15 @@ img {
 	-moz-border-radius: 150px;
 }
 .templatemo_clientimage img:hover { border: 3px solid #69a541; }
+
+.templatemo_team img{
+	width: 150px;
+	height: 150px;
+	border-radius: 300px;
+	
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
 
 .templatemo_clientdes {
   position: absolute;
