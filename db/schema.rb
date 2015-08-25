@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150820172207) do
     t.datetime "updated_at",        null: false
   end
 
+  add_index "habits", ["user_id"], name: "index_habits_on_user_id"
+
   create_table "tracks", force: :cascade do |t|
     t.string   "name"
     t.string   "startdate"
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150820172207) do
     t.integer  "habit_id"
     t.date     "newstart"
     t.date     "longdate"
+    t.integer  "checker"
   end
 
   add_index "tracks", ["habit_id"], name: "index_tracks_on_habit_id"

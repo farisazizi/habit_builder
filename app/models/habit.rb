@@ -1,8 +1,8 @@
 class Habit < ActiveRecord::Base
     belongs_to :user
+    has_one :track, dependent: :destroy
     validate :habits_count
     validates :habit_title,  presence: true
-    has_one :track, dependent: :destroy
 
     private
     

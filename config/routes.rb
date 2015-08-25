@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :tracks, controller: "tracker" 
   post 'tracker/increase_streak' => 'tracker/increase_streak'
   post 'tracker/reset_streak' => 'tracker/reset_streak'
+  post 'tracker/reset_counter' => 'tracker/reset_counter'
   resources :users
   
 end
