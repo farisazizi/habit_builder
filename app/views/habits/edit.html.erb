@@ -1,17 +1,25 @@
-<h1>Make your habit sounds stronger !</h1>
+<% provide(:title, 'Edit Habit') %>
 
-<div class="row">
-    <div class="col-md-6 col-md-offset-1">
+<div class="container-fluid">
+<div class="row header-form">
+  <div class="col-md-4 col-md-offset-4">
+    <h2>Edit Habit</h2>
+  </div>
+</div>  
+</div>
+
+
+<div class="row body-form">
+    <div class="col-md-6 col-md-offset-3 " >
         <%= form_for(@habit) do |f| %>
             <%= render 'habits/form', f: f %>
             <br></br>
             <%= f.submit "Ready to go !", class: "btn btn-primary" %>
+            <br></br>
+            <br></br>
+            <%= link_to 'Show', @habit %> |
+            <%= link_to 'Back', root_url %>
         <% end %>
-        <br></br>
-        <br></br>
-        <%= link_to 'Show', @habit %> |
-        <%= link_to 'Back', root_url %>
-    </div>
+        
+   </div>  
 </div>
-
-

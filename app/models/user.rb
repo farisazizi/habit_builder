@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   has_many :habits, dependent: :destroy
+  has_many :tracks, :through => :habits
   validates_associated :habits
   
   before_save { self.email = email.downcase }
